@@ -5,9 +5,16 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// add graphql generator
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+enum LoginStatus {
+  LOGGED_IN
+  LOGGED_OUT
 }
 
 model User {
@@ -20,11 +27,19 @@ model User {
 }
 
 model Login {
-  id        String   @id @default(uuid())
-  User      User?    @relation(fields: [userId], references: [id])
-  userId    String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String      @id @default(uuid())
+  User        User?       @relation(fields: [userId], references: [id])
+  userId      String?
+  ip          String?
+  deviceId    String?
+  deviceType  String?
+  country     String?
+  countryCode String?
+  countryFlag String?
+  city        String?
+  status      LoginStatus @default(LOGGED_IN)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 
   @@map("logins")
 }

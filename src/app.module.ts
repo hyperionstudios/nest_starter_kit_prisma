@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { queueConfig } from 'config/queue.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
+import { queueConfig } from 'config';
 
 // setup bull module for queueing
 // setup multer for file uploads
@@ -16,6 +16,7 @@ import { AuthModule } from './auth/auth.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    // graphqlConfig,
     queueConfig,
     PrismaModule,
     AuthModule,
