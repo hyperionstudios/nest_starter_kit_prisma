@@ -53,10 +53,21 @@ export class AuthService {
         }
     }
 
-
+    /**
+     * to be implemented by the user
+     * @param signInDto 
+     */
     async signUpLocal(signInDto: SignInDto) { }
 
+    /**
+     * to be implemented by the user
+     */
     async signInLocal(signUpDto: SignUpDto) { }
 
+    /**
+     * to be implemented by the user
+     * @param userId 
+     * @param refreshToken 
+     */
     async refreshTokens(userId: string, refreshToken: string) { }
 }
