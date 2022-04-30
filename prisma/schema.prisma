@@ -1,15 +1,37 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 
 generator client {
   provider = "prisma-client-js"
 }
 
-// add graphql generator
+// graphql generator
+generator nestgraphql {
+  provider = "node node_modules/prisma-nestjs-graphql"
+  output   = "../src/generated/graphqls"
+}
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+// erd generator
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "../ERD.svg"
+}
+
+// Generator for DTO
+generator nestjsDto {
+  provider                        = "prisma-generator-nestjs-dto"
+  output                          = "../src/generated/dtos"
+  outputToNestJsResourceStructure = "true"
+  exportRelationModifierClasses   = "true"
+  reExport                        = "true"
+  createDtoPrefix                 = "Create"
+  updateDtoPrefix                 = "Update"
+  dtoSuffix                       = "Dto"
+  entityPrefix                    = ""
+  entitySuffix                    = ""
+  fileNamingStyle                 = "camel"
 }
 
 enum LoginStatus {
@@ -18,27 +40,63 @@ enum LoginStatus {
 }
 
 model User {
+  /// @DtoCreateOptional
+  /// @DtoUpdateOptional
   id        String   @id @default(uuid())
+  /// @DtoUpdateOptional
+  firstName String
+  /// @DtoUpdateOptional
+  lastName  String
+  /// @DtoCreateOptional
+  /// @DtoUpdateOptional
   logins    Login[]
+  /// @DtoCreateOptional
+  /// @DtoUpdateHidden
+  /// @DtoUpdateOptional
   createdAt DateTime @default(now())
+  /// @DtoUpdateHidden
+  /// @DtoUpdateOptional
+  /// @DtoCreateOptional
   updatedAt DateTime @updatedAt
 
   @@map("users")
 }
 
 model Login {
+  /// @DtoUpdateOptional
+  /// @DtoCreateOptional
   id          String      @id @default(uuid())
   User        User?       @relation(fields: [userId], references: [id])
+  /// @DtoUpdateOptional
   userId      String?
+  /// @DtoUpdateOptional
+  /// @DtoUpdateOptional
   ip          String?
+  /// @DtoUpdateOptional
+  /// @DtoUpdateOptional
   deviceId    String?
+  /// @DtoUpdateOptional
+  /// @DtoUpdateOptional
   deviceType  String?
+  /// @DtoUpdateOptional
+  /// @DtoUpdateOptional
   country     String?
+  /// @DtoUpdateOptional
+  /// @DtoUpdateOptional
   countryCode String?
+  /// @DtoUpdateOptional
+  /// @DtoUpdateOptional
   countryFlag String?
+  /// @DtoUpdateOptional
+  /// @DtoUpdateOptional
   city        String?
+  /// @DtoUpdateOptional
   status      LoginStatus @default(LOGGED_IN)
+  /// @DtoUpdateOptional
+  /// @DtoUpdateOptional
   createdAt   DateTime    @default(now())
+  /// @DtoUpdateOptional
+  /// @DtoUpdateOptional
   updatedAt   DateTime    @updatedAt
 
   @@map("logins")

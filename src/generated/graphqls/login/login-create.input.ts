@@ -1,0 +1,44 @@
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { UserCreateNestedOneWithoutLoginsInput } from '../user/user-create-nested-one-without-logins.input';
+import { LoginStatus } from '../prisma/login-status.enum';
+
+@InputType()
+export class LoginCreateInput {
+
+    @Field(() => String, {nullable:true})
+    id?: string;
+
+    @Field(() => UserCreateNestedOneWithoutLoginsInput, {nullable:true})
+    User?: UserCreateNestedOneWithoutLoginsInput;
+
+    @Field(() => String, {nullable:true})
+    ip?: string;
+
+    @Field(() => String, {nullable:true})
+    deviceId?: string;
+
+    @Field(() => String, {nullable:true})
+    deviceType?: string;
+
+    @Field(() => String, {nullable:true})
+    country?: string;
+
+    @Field(() => String, {nullable:true})
+    countryCode?: string;
+
+    @Field(() => String, {nullable:true})
+    countryFlag?: string;
+
+    @Field(() => String, {nullable:true})
+    city?: string;
+
+    @Field(() => LoginStatus, {nullable:true})
+    status?: keyof typeof LoginStatus;
+
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}

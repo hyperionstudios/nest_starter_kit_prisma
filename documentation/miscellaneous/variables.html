@@ -61,10 +61,19 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#cacheConfig" title="config/cache.config.ts" ><b>cacheConfig</b>&nbsp;&nbsp;&nbsp;(config/.../cache.config.ts)</a>
+                        </li>
+                        <li>
                             <a href="#fileUploadConfig" title="config/files.config.ts" ><b>fileUploadConfig</b>&nbsp;&nbsp;&nbsp;(config/.../files.config.ts)</a>
                         </li>
                         <li>
+                            <a href="#graphqlConfig" title="config/graphql.config.ts" ><b>graphqlConfig</b>&nbsp;&nbsp;&nbsp;(config/.../graphql.config.ts)</a>
+                        </li>
+                        <li>
                             <a href="#queueConfig" title="config/queue.config.ts" ><b>queueConfig</b>&nbsp;&nbsp;&nbsp;(config/.../queue.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#routerConfig" title="config/router.config.ts" ><b>routerConfig</b>&nbsp;&nbsp;&nbsp;(config/.../router.config.ts)</a>
                         </li>
                         <li>
                             <a href="#swaggerConfig" title="config/swagger.config.ts" ><b>swaggerConfig</b>&nbsp;&nbsp;&nbsp;(config/.../swagger.config.ts)</a>
@@ -76,6 +85,35 @@
     </table>
 </section>
 
+    <h3>config/cache.config.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cacheConfig"></a>
+                    <span class="name">
+                        <span ><b>cacheConfig</b></span>
+                        <a href="#cacheConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>CacheModule.register({
+    isGlobal: true,
+    store: redisStore,
+    port: parseInt(process.env.REDIS_PORT),
+    host: process.env.REDIS_HOST,
+    password: process.env.REDIS_PASSWORD,
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>config/files.config.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -96,6 +134,33 @@
         destination: &quot;./public/uploads&quot;,
         filename: FileUtil.editFileName,
     }),
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>config/graphql.config.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphqlConfig"></a>
+                    <span class="name">
+                        <span ><b>graphqlConfig</b></span>
+                        <a href="#graphqlConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>GraphQLModule.forRoot&lt;ApolloDriverConfig&gt;({
+    driver: ApolloDriver,
+    debug: true,
+    playground: true,
 })</code>
                     </td>
                 </tr>
@@ -133,6 +198,34 @@
         </tbody>
     </table>
 </section>
+    <h3>config/router.config.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="routerConfig"></a>
+                    <span class="name">
+                        <span ><b>routerConfig</b></span>
+                        <a href="#routerConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>RouterModule.register([
+    {
+        path: &#x27;auth&#x27;,
+        module: AuthModule,
+    }
+])</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>config/swagger.config.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -153,6 +246,8 @@
     .setDescription(&#x27;The NestJS API Starter Kit API description&#x27;)
     .setVersion(&#x27;1.0&#x27;)
     .addBearerAuth()
+    .addTag(&#x27;Authentication&#x27;, &#x27;Authentication Module&#x27;)
+    .addTag(&#x27;Account&#x27;, &#x27;Account Module&#x27;)
     .build()</code>
                     </td>
                 </tr>

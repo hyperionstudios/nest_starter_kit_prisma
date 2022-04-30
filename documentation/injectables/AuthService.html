@@ -88,6 +88,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#refreshTokens" >refreshTokens</a>
                             </li>
                             <li>
@@ -352,6 +356,89 @@ set the expire time to whatever you want</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>logout(refreshToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deviceID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/auth/auth.service.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>refreshToken</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>deviceID</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="refreshTokens"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -370,8 +457,8 @@ set the expire time to whatever you want</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">src/auth/auth.service.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/auth/auth.service.ts:83</a></div>
                 </td>
             </tr>
 
@@ -455,8 +542,8 @@ set the expire time to whatever you want</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">src/auth/auth.service.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/auth/auth.service.ts:71</a></div>
                 </td>
             </tr>
 
@@ -644,19 +731,37 @@ export class AuthService {
      * to be implemented by the user
      * @param signInDto 
      */
-    async signUpLocal(signInDto: SignInDto) { }
+    async signUpLocal(signInDto: SignInDto) {
+        //todo: create new user
+        //todo: generate tokens
+        //todo: create login record
+        //todo: generate email confirmation
+        //todo: return the tokens
+    }
 
     /**
      * to be implemented by the user
      */
-    async signInLocal(signUpDto: SignUpDto) { }
+    async signInLocal(signUpDto: SignUpDto) {
+        //todo: check if user exists
+        //todo: generate tokens
+        //todo: create login record
+        //todo: return the tokens
+    }
 
     /**
      * to be implemented by the user
      * @param userId 
      * @param refreshToken 
      */
-    async refreshTokens(userId: string, refreshToken: string) { }
+    async refreshTokens(userId: string, refreshToken: string) {
+        //todo: check if user exists
+        //todo: check if refresh token is valid
+        //todo: generate new tokens
+    }
+
+    // todo: switch to logoutDto -&gt; include tokens,deviceId etc
+    async logout(refreshToken: string, deviceID: string) { }
 }
 </code></pre>
     </div>

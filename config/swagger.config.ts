@@ -6,4 +6,6 @@ export const swaggerConfig = new DocumentBuilder()
     .setDescription('The NestJS API Starter Kit API description')
     .setVersion('1.0')
     .addBearerAuth()
+    .addTag('Authentication', 'Authentication Module')
+    .addTag('Account', 'Account Module')
     .build();
