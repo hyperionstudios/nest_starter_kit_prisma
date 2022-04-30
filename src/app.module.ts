@@ -5,6 +5,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { queueConfig } from 'config';
+import { cacheConfig } from 'config/cache.config';
 
 // setup bull module for queueing
 // setup multer for file uploads
@@ -18,6 +19,7 @@ import { queueConfig } from 'config';
     }),
     // graphqlConfig,
     queueConfig,
+    cacheConfig,
     PrismaModule,
     AuthModule,
   ],

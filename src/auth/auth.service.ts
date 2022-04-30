@@ -57,17 +57,35 @@ export class AuthService {
      * to be implemented by the user
      * @param signInDto 
      */
-    async signUpLocal(signInDto: SignInDto) { }
+    async signUpLocal(signInDto: SignInDto) {
+        //todo: create new user
+        //todo: generate tokens
+        //todo: create login record
+        //todo: generate email confirmation
+        //todo: return the tokens
+    }
 
     /**
      * to be implemented by the user
      */
-    async signInLocal(signUpDto: SignUpDto) { }
+    async signInLocal(signUpDto: SignUpDto) {
+        //todo: check if user exists
+        //todo: generate tokens
+        //todo: create login record
+        //todo: return the tokens
+    }
 
     /**
      * to be implemented by the user
      * @param userId 
      * @param refreshToken 
      */
-    async refreshTokens(userId: string, refreshToken: string) { }
+    async refreshTokens(userId: string, refreshToken: string) {
+        //todo: check if user exists
+        //todo: check if refresh token is valid
+        //todo: generate new tokens
+    }
+
+    // todo: switch to logoutDto -> include tokens,deviceId etc
+    async logout(refreshToken: string, deviceID: string) { }
 }
