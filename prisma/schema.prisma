@@ -62,6 +62,7 @@ model User {
   @@map("users")
 }
 
+// todo: add encrypted tokens for each login
 model Login {
   /// @DtoUpdateOptional
   /// @DtoCreateOptional

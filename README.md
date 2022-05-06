@@ -19,3 +19,14 @@ Features
   - [x] argon2 setup
   - kafka included in docker services (not in starter but ready to setup)
   - [ ] compdoc setup and npm script
+
+
+## Features
+### Services Containers
+### OpenApi
+### Prisma ORM
+### Queues
+### Authentication
+### Roles & Permissions
+### Auth & Roles Decorations
+### File Upload
